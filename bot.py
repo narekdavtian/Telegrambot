@@ -1,7 +1,10 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
+from dotenv import load_dotenv
+import os
 
-TOKEN = "8681543185:AAHjXLc5Urn969L4xEww5HolyWwWHSbkuE8"
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(update.message.text.upper())
